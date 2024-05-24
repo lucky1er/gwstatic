@@ -1,0 +1,79 @@
+title: WayPoints
+baseline: 'Discover your close environment'
+baseurl: 'https://wp.close-env.com/'
+description: 'Promote local actions and proximity to its immediate environment.'
+author:
+  name: 'Luc Guyon'
+  url: 'https://github.com/lucky1er/'
+image: favicon.png
+
+pages:
+  default:
+    # 404:
+    #   path: '404'
+    #   title: Page not found
+    #   layout: 404
+    #   uglyurl: true
+    #   published: true
+    #   exclude: true
+  body:
+    format: md          # page body format (only `md`, Markdown, is supported)
+    # toc: [h2, h3]       # headers used to build the table of contents
+    # highlight:
+    #   enabled: false    # enables code syntax highlighting (`false` by default)
+    images:             # how to handle images
+      # lazy:
+      #   enabled: true   # adds `loading="lazy"` attribute (`true` by default)
+      # decoding:
+      #   enabled: true   # adds `decoding="async"` attribute (`true` by default)
+      resize:
+        enabled: true  # enables image resizing by using the `width` extra attribute (`false` by default)
+      # webp:
+      #   enabled: false  # adds a WebP image as a `source` (`false` by default)
+      responsive:
+        enabled: true  # creates responsive images and add them to the `srcset` attribute (`false` by default)
+
+menus:
+  main:
+    - id: about
+      name: 'About'
+      url: '/about'
+      weight: 2
+    - id: contact
+      name: 'Contact'
+      url: '/contact'
+      weight: 3
+
+language:
+  code: en
+  prefix: true
+
+languages:
+  - code: en
+    name: English
+    locale: en_US
+  - code: fr
+    name: Français
+    locale: fr_FR
+    config:
+      #title: "WayPoints en français"
+      baseline: 'Découvrez votre environnement proche'
+      description: 'Promouvoir les actions locales et la proximité avec son environnement immédiat.'
+      menus:
+        main:
+          - id: index
+            name: 'Accueil'
+            url: '/'
+            weight: 1
+          - id: about
+            name: 'A propos'
+            url: '/about'
+            weight: 2
+          - id: contact
+            name: 'Contact'
+            url: '/contact'
+            weight: 3
+          - id: support
+            name: 'Support'
+            url: '/support'
+            weight: 4

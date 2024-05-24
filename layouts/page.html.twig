@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="{{ site.language }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {%- include('partials/metatags.html.twig') ~%}
+    {#-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css" />~#}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/build.css" />
+    <style type="text/css">
+      {{ asset('css/styles.css')|inline }}
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-9 col-sm-push-3">
+            {%- if page.type != 'homepage' ~%}
+            <a href="{{ url('/index') }}"><h1>{{ site.title}}</h1></a>
+            {%- else ~%}
+            <h1>{{ site.title }}</h1>
+            {%- endif ~%}
+            <h2>{{ site.baseline}}</h2>
+          </div>
+        </div>
+      </div>
+      <nav>
+        <ol>
+        {%- for entry in site.menus.main|sort_by_weight ~%}
+          <li><a href="{{ url(entry.url) }}" data-weight="{{ entry.weight }}">{{ entry.name }}</a></li>
+        {%- endfor ~%}
+        {%- if site.language == 'en' ~%}
+          <li class="float-end"><a class="btn btn-primary" href="/fr" data-weight="19">
+            <i class="bi bi-globe"></i> {{ site.languages|filter(e => e.code == 'fr')|first.name }}
+          </a></li>
+        {%- else ~%}
+          <li class="float-end"><a class="btn btn-primary" href="/en" data-weight="19">
+            <i class="bi bi-globe"></i> {{ site.languages|filter(e => e.code == 'en')|first.name }}
+          </a></li>
+        {%- endif ~%}
+        </ol>
+      </nav>
+    </header>
+    <main id="content" class="container">
+      {%- block sections ~%}
+      <section id="main" class="row">
+        --<br/>
+        {{ asset('css/styles.css').file }}<br/>
+        {{ asset('css/styles.css').path }}<br/>
+        -{{ page.type }}<br/>
+        -{{ page.id }}<br/>
+        -{{ page.path }}<br/>
+        --<br/>
+        {{ include(page.content_template) }} <!--{ page.content }-->
+      </section>
+      {%- endblock ~%}
+    </main>
+    <footer id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-9 col-sm-push-3">
+            {%- set powered_by -%}<a href="{{ cecil.url }}">Cecil</a>{%- endset ~%}
+            {%- set inspired_by -%}Flat{%- endset ~%}
+            {%- set inspired_from -%}<a href="https://github.com/erming/jsonresume-theme-flat/">Mattias Erming</a>{%- endset ~%}
+            {% trans %}Powered by %powered_by%{% endtrans %} — {% trans %}Inspired by the %inspired_by% theme from %inspired_from%{% endtrans %}
+          </div>
+        </div>
+      </div
+    </footer>
+  </body>
+</html>

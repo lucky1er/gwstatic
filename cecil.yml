@@ -1,6 +1,6 @@
 title: WayPoints
 baseline: 'Discover your close environment'
-baseurl: 'https://wp.close-env.com/'
+baseurl: 'http://localhost:8000/'
 description: 'Promote local actions and proximity to its immediate environment.'
 author:
   name: 'Luc Guyon'
@@ -18,18 +18,9 @@ pages:
     #   exclude: true
   body:
     format: md          # page body format (only `md`, Markdown, is supported)
-    # toc: [h2, h3]       # headers used to build the table of contents
-    # highlight:
-    #   enabled: false    # enables code syntax highlighting (`false` by default)
     images:             # how to handle images
-      # lazy:
-      #   enabled: true   # adds `loading="lazy"` attribute (`true` by default)
-      # decoding:
-      #   enabled: true   # adds `decoding="async"` attribute (`true` by default)
       resize:
         enabled: true  # enables image resizing by using the `width` extra attribute (`false` by default)
-      # webp:
-      #   enabled: false  # adds a WebP image as a `source` (`false` by default)
       responsive:
         enabled: true  # creates responsive images and add them to the `srcset` attribute (`false` by default)
 
@@ -56,9 +47,8 @@ languages:
     name: Français
     locale: fr_FR
     config:
-      #title: "WayPoints en français"
       baseline: 'Découvrez votre environnement proche'
-      description: 'Promouvoir les actions locales et la proximité avec son environnement immédiat.'
+      description: 'Promouvoir les actions locales et la proximité avec son environnement.'
       menus:
         main:
           - id: index
@@ -73,7 +63,3 @@ languages:
             name: 'Contact'
             url: '/contact'
             weight: 3
-          - id: support
-            name: 'Support'
-            url: '/support'
-            weight: 4
